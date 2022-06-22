@@ -117,8 +117,6 @@
                             <td x-text="customer.status" class="px-6 py-4">
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <a href="#"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline px-2">Detail</a>
                                 <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline px-3"
                                     @click="open = true, editId = customer.id, modalTitle = 'Edit Detail'">Edit</a>
                                 <button x-data="{
@@ -176,8 +174,10 @@
     
                 open = false;
             },
+
             async updateCustomer() {
-                this.updatedCustomer = await (await fetch('https://62b17520196a9e987035cecb.mockapi.io/api/v1/customers/'+editId, {
+                this.updatedCustomer = await (await fetch('https://62b17520196a9e987035cecb.mockapi.io/api/v1/customers/'+editId
+                ,{
                     method: 'PUT',
                     body: JSON.stringify({
                         name: this.name,
